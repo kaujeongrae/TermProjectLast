@@ -10,15 +10,13 @@ public class HouseAccount extends Account {
 
     public HouseAccount(){
         super();
+        month=0;
     }
 
 
-    public void add(){//Account 클래스의 add 함수 Overloading
+    public void add(){
             balance=balance+100000;
-    }
-
-    public void setmonth(){
-        month=month+1;
+            month=month+1;
     }
 
     public double getbalance(){
@@ -28,11 +26,6 @@ public class HouseAccount extends Account {
             return balance;
         }
     }
-
-    public int getmonth(){
-        return month;
-    }
-
 
 
 }

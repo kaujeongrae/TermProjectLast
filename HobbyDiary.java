@@ -12,4 +12,12 @@ public class HobbyDiary extends Diary {
     public void addcost(double money){
         cost=cost+money;
     }
+
+    public void String(){
+        System.out.println("취미에 얼마를 쓰셨나요? ");
+    }
+
+    public double getcost(){
+        return cost;
+    }
 }

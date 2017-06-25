@@ -10,4 +10,13 @@ public abstract class Diary {
     public Diary(){
         cost=0;
     }
+
+    public void String(){}
+
+    public void addcost(){}
+    public void addcost(double money){}
+
+    public abstract double getcost();
+
+
 }

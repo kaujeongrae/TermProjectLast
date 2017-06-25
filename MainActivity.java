@@ -16,68 +16,83 @@ public class MainActivity extends AppCompatActivity {
     public static void main(String[] args){
         Scanner sc=new Scanner(System.in);
 
-        Account acc1=new Account();
+        //객체 선언
+
+        Communication c=new Communication();
+        Account acc1=new InOutAccount();
         Account acc2=new HouseAccount();
         Diary dir1=new FoodDiary();
         Diary dir2=new TransportDiary();
         Diary dir3=new HobbyDiary();
         Diary dir4=new RemainDiary();
 
-        System.out.println("가계부를 이용해주셔서 감사합니다.");
-        System.out.println("사용하실 기능을 선택해주세요.");
-        System.out.println("1. 지출 내역 입력 2. 계좌 입금 3. 주택청약 입금 4. 넘어가기");
-        int con=sc.nextInt();
-        switch (con){
-            case 1:
-                System.out.println("입력할 지출 종류는? 1. 식사 2. 교통 3. 취미 4. 기타");
-                int con3=sc.nextInt();
-                switch (con3){
-                    case 1:
-                        break;
 
-                    case 2:
-                        break;
+        //스위치 문을 통해 세부 기능 연결
+        int con=9;
+        outer:
+        while (con!=0){
+            c.start();
+            con=sc.nextInt();
+            switch (con){
+                case 1:
+                    c.diary();
+                    con=sc.nextInt();
+                    switch (con){
+                        case 1:
+                            dir1.String();
+                            double money=sc.nextDouble();
+                            dir1.addcost(money);
+                            break;
 
-                    case 3:
-                        break;
+                        case 2:
+                            dir2.String();
+                            money=sc.nextDouble();
+                            dir2.addcost(money);
+                            break;
 
-                    case 4:
-                        break;
+                        case 3:
+                            dir3.String();
+                            money=sc.nextDouble();
+                            dir3.addcost(money);
+                            break;
 
-                    default:
+                        case 4:
+                            dir4.String();
+                            money=sc.nextDouble();
+                            dir4.addcost(money);
+                            break;
 
-                }
-                break;
+                        default:
+                            c.error();
+                    }
+                    break;
 
-            case 2:
-                System.out.println("입금을 금액을 알려주세요.");
-                double money=sc.nextDouble();
-                acc1.add(money);
-                break;
+                case 2:
+                    c.str1();
+                    double money=sc.nextDouble();
+                    acc1.add(money);
+                    break;
 
-            case 3:
-                System.out.println("청약저축 계좌에 10만원을 추가 입금하겠습니다.");
-                acc2.add();
-                acc2.add();
+                case 3:
+                    c.str2();
+                    acc2.add();
+                    break;
 
-                System.out.println("지금까지의 저축 내역을 확인하시겠습니까? 1. 예 2. 아니오");
-                int con2=sc.nextInt();
-                switch (con2){
-                    case 1:
-                        System.out.println("당신의 주택청약저축 :"+acc2.getbalance()+"원 "+acc2.getmonth()+"개월");
-                        break;
+                case 0:
+                    c.end();
+                    break outer;
 
-                    case 2:
-                        break;
-                }
-                break;
-
-            default:
-                System.out.println("잘못 입력하셨습니다.");
+                default:
+                    c.error();
+            }
         }
 
-
-
-
+        System.out.println("현재까지의 지출 내역");
+        System.out.println("식사"+dir1.getcost());
+        System.out.println("교통"+dir2.getcost());
+        System.out.println("취미"+dir3.getcost());
+        System.out.println("기타"+dir4.getcost());
+        System.out.println("입출금 계좌 잔고"+acc1.getbalance());
+        System.out.println("주택 통장 금액"+acc2.getbalance());
     }
 }
