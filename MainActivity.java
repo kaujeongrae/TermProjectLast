@@ -86,13 +86,7 @@ public class MainActivity extends AppCompatActivity {
                     c.error();
             }
         }
-
-        System.out.println("현재까지의 지출 내역");
-        System.out.println("식사"+dir1.getcost());
-        System.out.println("교통"+dir2.getcost());
-        System.out.println("취미"+dir3.getcost());
-        System.out.println("기타"+dir4.getcost());
-        System.out.println("입출금 계좌 잔고"+acc1.getbalance());
-        System.out.println("주택 통장 금액"+acc2.getbalance());
+        //내역 출력
+        c.lastcom(dir1,dir2,dir3,dir4,acc1,acc2);
     }
 }

@@ -30,5 +30,14 @@ public class Communication {
         System.out.println("입력을 종료합니다.");
     }
 
+    public void lastcom(Diary dir1,Diary dir2,Diary dir3,Diary dir4,Account acc1,Account acc2){
+        System.out.println("현재까지의 지출 내역");
+        System.out.println("식사: "+dir1.getcost());
+        System.out.println("교통: "+dir2.getcost());
+        System.out.println("취미: "+dir3.getcost());
+        System.out.println("기타: "+dir4.getcost());
+        System.out.println("입출금계좌 잔고: "+acc1.getbalance());
+        System.out.println("주택통장 금액(1년이 넘어가면 이자 포함): "+acc2.getbalance());
+    }
 
 }
